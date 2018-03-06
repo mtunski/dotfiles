@@ -378,11 +378,6 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
-	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
-	<array>
-		<string>0.000000, 0.000000, 224.000000, 263.000000, NO, NO</string>
-		<string>0.000000, 264.000000, 224.000000, 43.000000, NO, NO</string>
-	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -406,17 +401,10 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>507 232 812 296 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>285 255 796 473 0 0 1440 900 </string>
+	<string>269 67 937 512 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>80 0 730 527 0 0 1440 900 </string>
+	<string>80 0 730 527 0 0 1920 1080 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -437,6 +425,8 @@
 			<key>AWDS Window Option</key>
 			<string>No</string>
 			<key>Allow Title Reporting</key>
+			<true/>
+			<key>Allow Title Setting</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
@@ -913,7 +903,7 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<false/>
 			<key>Use Bright Bold</key>
@@ -935,17 +925,23 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>C56D7187-1158-4A63-8EA2-1B7C9E4B9589</string>
+	<string>0FB6EF31-E869-4603-80F6-E5CB106047ED</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>541072224.96067703</real>
+	<real>541591627.85833097</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict/>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/mtunski/.dotfiles/iterm</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>SUEnableAutomaticChecks</key>
@@ -953,17 +949,19 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=79</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=37</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-01T08:51:26Z</date>
+	<date>2018-03-05T08:50:36Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>WindowNumber</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.1.5</string>
 </dict>
