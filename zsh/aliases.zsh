@@ -4,6 +4,7 @@
 alias gl="git pull"
 alias glg="git log --decorate --abbrev-commit"
 alias gp="git push"
+alias gpf="git push --force-with-lease"
 alias gd="git diff"
 alias gc="git commit"
 alias gca="git commit -a"
