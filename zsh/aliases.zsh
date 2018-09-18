@@ -38,3 +38,7 @@ alias be="bundle exec"
 alias wget="wget -c"
 alias pgcli="clear && pgcli"
 alias psql="pgcli"
+
+alias hr="heroku run"
+alias hrc="hr rails c"
+alias hrc="hr rails c"
