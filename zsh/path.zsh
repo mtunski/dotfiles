@@ -1,1 +1,1 @@
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/sbin:$PATH"
