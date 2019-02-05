@@ -2,7 +2,7 @@
 dump.rdb
 .env
 Guardfile
-.ruby-version*
+.ruby-version
 .rspec*
 erl_crash.dump
 .sass-cache/
@@ -16,6 +16,7 @@ npm-debug.log
 .nvmrc
 .node-version
 .sublimelinterrc
-.prettierrc*
 jsconfig.json
 nvm-use.log
+.vscode/
+tsconfig.json
