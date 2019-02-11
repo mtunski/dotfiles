@@ -20,3 +20,4 @@ jsconfig.json
 nvm-use.log
 .vscode/
 tsconfig.json
+.tool-versions

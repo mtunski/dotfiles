@@ -10,7 +10,5 @@ source "$DOT_DIR/window.zsh"
 source "$DOT_DIR/completions.zsh"
 source "$DOT_DIR/functions/functions.zsh"
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-[[ :$PATH: == *":$N_DIR/bin:"* ]] || PATH+=":$N_DIR/bin"
-[[ -s "$AVN_DIR/bin/avn.sh" ]] && source "$AVN_DIR/bin/avn.sh"
+source "$ASDF_DIR/asdf.sh"
+source "$ASDF_DIR/etc/bash_completion.d/asdf.bash"

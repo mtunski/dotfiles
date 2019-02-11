@@ -1,6 +1,4 @@
-export N_DIR="$HOME/.n"
-export N_PREFIX="$HOME/.n"
-export AVN_DIR="$HOME/.avn"
+export ASDF_DIR=$(brew --prefix asdf)
 export ZSH_DIR="$HOME/.zsh"
 export _Z_DATA="$ZSH_DIR/z"
 
