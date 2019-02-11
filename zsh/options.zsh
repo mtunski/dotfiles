@@ -3,9 +3,10 @@ setopt auto_cd
 # allow expansion in prompts
 setopt prompt_subst
 
-# this is default, but set for share_history
-setopt append_history
-# setopt share_history
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
+setopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
