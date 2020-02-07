@@ -27,8 +27,13 @@ alias gsh="git show"
 ################################################################################
 ##### Custom
 ################################################################################
-alias ls="gls -AFG --group-directories-first --color=auto"
-alias ll="ls -l"
+# alias ls="gls -AFG --group-directories-first --color=auto"
+# alias ll="ls -l"
+
+alias ls="exa -a --group-directories-first"
+alias ll="ls -lh"
+
+alias cat="clear && bat"
 
 alias sudo="sudo "
 alias ps="ps aux"
@@ -37,7 +42,7 @@ alias mkdir="mkdir -pv"
 alias be="bundle exec"
 alias wget="wget -c"
 alias pgcli="clear && pgcli"
-alias psql="pgcli"
+# alias psql="pgcli"
 
 alias hr="heroku run"
 alias hrc="hr rails c"
