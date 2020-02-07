@@ -1,6 +1,7 @@
 .DS_Store
 dump.rdb
 .env
+.envrc
 Guardfile
 .ruby-version
 .rspec*
@@ -22,3 +23,4 @@ nvm-use.log
 tsconfig.json
 .tool-versions
 .tool-settings
+Procfile.development
