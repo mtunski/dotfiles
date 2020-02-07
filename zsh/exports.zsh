@@ -15,3 +15,5 @@ export LC_CTYPE="en_US.UTF-8"
 export PGHOST="/tmp"
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+export DIRENV_LOG_FORMAT=
