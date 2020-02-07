@@ -1,5 +1,5 @@
 ruby 2.6.1
-nodejs 10.15.3
+nodejs 13.6.0
 java openjdk-11.0.1
 erlang 21.2
 elixir 1.8.1
