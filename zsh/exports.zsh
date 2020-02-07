@@ -13,3 +13,5 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 export PGHOST="/tmp"
+
+export ERL_AFLAGS="-kernel shell_history enabled"
