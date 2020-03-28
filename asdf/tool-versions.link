@@ -3,3 +3,4 @@ nodejs 13.6.0
 java openjdk-11.0.1
 erlang 21.2
 elixir 1.8.1
+golang 1.13.8
