@@ -20,7 +20,10 @@ npm-debug.log
 jsconfig.json
 nvm-use.log
 .vscode/
-tsconfig.json
+# tsconfig.json
 .tool-versions
 .tool-settings
 Procfile.development
+.dockerenv.dev
+yarn-error.log
+.envrc
