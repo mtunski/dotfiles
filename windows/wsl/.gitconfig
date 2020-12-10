@@ -1,0 +1,19 @@
+[color]
+  ui = true
+  diff = true
+  status = true
+  branch = true
+[user]
+  name = Mateusz Tuński
+  email = mateusz@tunski.co
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  pager = cat
+	filemode = false
+[credential]
+  helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+[push]
+  default = simple
+[pull]
+  rebase = true

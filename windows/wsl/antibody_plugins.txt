@@ -1,0 +1,2 @@
+zdharma/fast-syntax-highlighting
+skywind3000/z.lua
