@@ -180,3 +180,15 @@ zstyle ':completion:*:ssh:*' hosts off
 # WARNING!!! THIS BREAKS CRAWLER IN HEADLESS!!!
 # export DISPLAY=$WSL_IF_IP:0
 # unset LIBGL_ALWAYS_INDIRECT
+
+
+# export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'
+__wt_osc9_9 () {
+    _win_path=$(wslpath -m "$(pwd)")
+    printf "\033]9;9;\"%s\"\033\\" "$_win_path"
+}
+if [ -n "$WT_SESSION" ] ; then
+    if ((!precmd_functions[(I)__wt_osc9_9])); then
+        precmd_functions+=(__wt_osc9_9)
+    fi
+fi
