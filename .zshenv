@@ -46,14 +46,15 @@ setopt rcs
 
 # Custom
 
-if [ -n "${HOMEBREW_PREFIX}" ]; then
+if [[ -n "${HOMEBREW_PREFIX}" && ! -n "${DEVBOX}" ]]; then
   z4h source -- ${HOMEBREW_PREFIX:+$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh}
 fi
 
-if [ -e ~/.asdf/asdf.sh ]; then
+if [[ -e ~/.asdf/asdf.sh && ! -n "${DEVBOX}" ]]; then
   z4h source -- ~/.asdf/asdf.sh
 fi
 
 export DIRENV_LOG_FORMAT=
 
-if [ -e /home/mtunski/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mtunski/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e /home/mtunski/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mtunski/.nix-profile/etc/profile.d/nix.sh; fi                     # added by Nix installer
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; fi # added by Nix installer
