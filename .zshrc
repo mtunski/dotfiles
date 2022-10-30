@@ -114,19 +114,21 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 # Custom 
 
-# Configure ssh forwarding
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-# need `ps -ww` to get non-truncated command for matching
-# use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
-ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
-if [[ $ALREADY_RUNNING != "0" ]]; then
-    if [[ -S $SSH_AUTH_SOCK ]]; then
-        # not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
-        rm $SSH_AUTH_SOCK
-    fi
-    # setsid to force new session to keep running
-    # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+if (( $+commands[npiperelay.exe] )) then
+  # Configure ssh forwarding
+  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+  # need `ps -ww` to get non-truncated command for matching
+  # use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
+  ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
+  if [[ $ALREADY_RUNNING != "0" ]]; then
+      if [[ -S $SSH_AUTH_SOCK ]]; then
+          # not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
+          rm $SSH_AUTH_SOCK
+      fi
+      # setsid to force new session to keep running
+      # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
+      (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+  fi
 fi
 
 export PGHOST=localhost
@@ -144,7 +146,7 @@ if (( $+commands[exa] )) then
   # alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
 fi
 
-if (( $+commands[batcat] )) then
+if (( $+commands[batcat] || $+commands[bat] )) then
   alias cat=bat
 fi
 
@@ -152,7 +154,7 @@ if (( $+commands[explorer.exe] )) then
   alias open="explorer.exe $1"
 fi
 
-if (( $+commands[explorer.exe] )) then
+if (( $+commands[autossh] )) then
   alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
   alias surfer.tunnels.stop="killall autossh"
   alias surfer.backend="cd ~/Code/Surfer/surfer-core && iex -S mix phx.server"
@@ -169,7 +171,7 @@ if (( $+commands[wslpath] )) then
 fi
 
 # load surfer helpers in remote environment
-if [[ -f /etc/profile.d/surfer-umbrella.sh ]]; then
+if [ -e /etc/profile.d/surfer-umbrella.sh ]; then
   source /etc/profile.d/surfer-umbrella.sh
 fi
 
