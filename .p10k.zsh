@@ -30,6 +30,7 @@
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    devbox
     context                 # user@hostname
     dir                     # current directory
     vcs                     # git status
@@ -1569,6 +1570,15 @@
     # instant_prompt_example. This will give us the same `example` prompt segment in the instant
     # and regular prompts.
     prompt_example
+  }
+
+   function prompt_devbox() {
+    if [[ -n "${DEVBOX}" ]]; then
+      p10k segment -f 3 -t '[devbox]'
+    fi
+  }
+  function instant_prompt_devbox() {
+    prompt_devbox
   }
 
   # User-defined prompt segments can be customized the same way as built-in segments.
