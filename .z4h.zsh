@@ -53,7 +53,33 @@ setopt no_auto_menu # require an extra TAB press to open the completion menu
 
 # Custom
 
-if (($+commands[npiperelay.exe])); then
+export PGHOST=localhost
+export AUTOSSH_FIRST_POLL=30
+export AUTOSSH_GATETIME=60
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+unsetopt extendedglob
+
+if (($+commands[pgcli])); then
+  alias psql=pgcli
+fi
+
+if (($+commands[exa])); then
+  alias ls=exa
+  # alias ls='exa -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
+  # alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
+fi
+
+if (($+commands[bat])); then
+  alias cat=bat
+fi
+if (($+commands[batcat])); then
+  alias cat=batcat
+fi
+
+if (($+commands[explorer.exe])); then
+  alias open="explorer.exe $1"
+
   # Configure ssh forwarding
   export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
   # need `ps -ww` to get non-truncated command for matching
@@ -71,50 +97,25 @@ if (($+commands[npiperelay.exe])); then
     # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
     (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
   fi
-fi
 
-export PGHOST=localhost
-export AUTOSSH_FIRST_POLL=30
-export AUTOSSH_GATETIME=60
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-unsetopt extendedglob
-
-alias psql=pgcli
-
-if (($+commands[exa])); then
-  alias ls=exa
-# alias ls='exa -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
-# alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
-fi
-
-if (($+commands[batcat] || $+commands[bat])); then
-  alias cat=bat
-fi
-
-if (($+commands[explorer.exe])); then
-  alias open="explorer.exe $1"
-fi
-
-if (($+commands[autossh])); then
-  alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
-  alias surfer.tunnels.stop="killall autossh"
-  alias surfer.docker="cd ~/Code/Surfer/surfer-core && docker compose -f docker-compose.dev.yml up -d"
-  alias surfer.backend="surfer.docker && iex -S mix phx.server"
-  alias surfer.frontend="cd ~/Code/Surfer/surfer-core && yarn && yarn start:ssl"
-  alias surfer.crawler="cd ~/Code/Surfer/surfer-crawler && yarn start:dev"
-  alias surfer.clusterer="cd ~/Code/Surfer/surfer-clusterer && make docker-start"
-fi
-
-if (($+commands[wslpath])); then
   keep_current_path() {
     printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
   }
   precmd_functions+=(keep_current_path)
 fi
 
+if (($+commands[autossh])); then
+  alias surfer.docker="cd ~/Code/Surfer/surfer-core && docker compose -f docker-compose.dev.yml up -d"
+  alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
+  alias surfer.tunnels.stop="killall autossh"
+  alias surfer.backend="surfer.docker && iex -S mix phx.server"
+  alias surfer.frontend="cd ~/Code/Surfer/surfer-core && yarn && yarn start:ssl"
+  alias surfer.crawler="cd ~/Code/Surfer/surfer-crawler && yarn start:dev"
+  alias surfer.clusterer="cd ~/Code/Surfer/surfer-clusterer && make docker-start"
+fi
+
 # load surfer helpers in remote environment
-if [ -e /etc/profile.d/surfer-umbrella.sh ]; then
+if [[ -f /etc/profile.d/surfer-umbrella.sh ]]; then
   source /etc/profile.d/surfer-umbrella.sh
 fi
 
