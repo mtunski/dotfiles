@@ -40,7 +40,7 @@ zstyle ':z4h:ssh:*' enable 'yes'
 
 # Send these files over to the remote host when connecting over SSH to the
 # enabled hosts.
-zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
+zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh' '~/.z4h.zsh'
 
 # Start ssh-agent if it's not running yet.
 # zstyle ':z4h:ssh-agent:' start yes
@@ -54,5 +54,5 @@ zstyle ':z4h:ssh-agent:' start 'no'
 # z4h install ohmyzsh/ohmyzsh || return
 
 if command -v z4h >/dev/null; then
-  source ~/.z4h
+  source ~/.z4h.zsh
 fi

@@ -99,7 +99,8 @@ fi
 if (($+commands[autossh])); then
   alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
   alias surfer.tunnels.stop="killall autossh"
-  alias surfer.backend="cd ~/Code/Surfer/surfer-core && iex -S mix phx.server"
+  alias surfer.docker="cd ~/Code/Surfer/surfer-core && docker compose -f docker-compose.dev.yml up -d"
+  alias surfer.backend="surfer.docker && iex -S mix phx.server"
   alias surfer.frontend="cd ~/Code/Surfer/surfer-core && yarn && yarn start:ssl"
   alias surfer.crawler="cd ~/Code/Surfer/surfer-crawler && yarn start:dev"
   alias surfer.clusterer="cd ~/Code/Surfer/surfer-clusterer && make docker-start"
