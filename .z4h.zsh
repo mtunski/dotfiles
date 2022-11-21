@@ -57,6 +57,7 @@ export PGHOST=localhost
 export AUTOSSH_FIRST_POLL=30
 export AUTOSSH_GATETIME=60
 export ERL_AFLAGS="-kernel shell_history enabled"
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
 unsetopt extendedglob
 
@@ -81,7 +82,6 @@ if (($+commands[explorer.exe])); then
   alias open="explorer.exe $1"
 
   # Configure ssh forwarding
-  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
   # need `ps -ww` to get non-truncated command for matching
   # use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
   ALREADY_RUNNING=$(
