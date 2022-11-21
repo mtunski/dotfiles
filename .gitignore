@@ -29,3 +29,4 @@ yarn-error.log
 .envrc
 .elixir_ls/
 docker-compose.dev.yml
+.nova/
