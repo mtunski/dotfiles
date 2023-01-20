@@ -61,6 +61,14 @@ export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
 unsetopt extendedglob
 
+alias gb="git branch"
+alias gco="git checkout"
+alias gc="git commit"
+alias glg="git log"
+alias gm="git merge"
+alias gl="git pull"
+alias gp="git push"
+
 if (($+commands[pgcli])); then
   alias psql=pgcli
 fi
@@ -108,7 +116,7 @@ if (($+commands[autossh])); then
   alias surfer.docker="cd ~/Code/Surfer/surfer-core && docker compose -f docker-compose.dev.yml up -d"
   alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
   alias surfer.tunnels.stop="killall autossh"
-  alias surfer.backend="surfer.docker && iex -S mix phx.server"
+  alias surfer.backend="surfer.tunnels.stop && surfer.tunnels.start && surfer.docker && iex -S mix phx.server"
   alias surfer.frontend="cd ~/Code/Surfer/surfer-core && yarn && yarn start:ssl"
   alias surfer.crawler="cd ~/Code/Surfer/surfer-crawler && yarn start:dev"
   alias surfer.clusterer="cd ~/Code/Surfer/surfer-clusterer && make docker-start"
