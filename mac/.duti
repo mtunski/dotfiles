@@ -1,12 +1,33 @@
 # Set Safari as the default handler for HTML files,
+
 # set TextEdit as the default handler for files with .patch extensions,
+
 # and set Firefox as the default handler for feed:// URLs.
+
 #
+
 # blank lines and lines beginning with a '#' are ignored
+
 #
-# bundle_id         UTI/ext/MIME  type    role
 
-# com.apple.Safari  public.html all
-# com.apple.TextEdit  .patch  editor
+# bundle_id UTI/ext/MIME type role
 
-com.microsoft.VSCode .js editor
+# com.apple.Safari public.html all
+
+# com.apple.TextEdit .patch editor
+
+com.microsoft.VSCode public.text all
+com.microsoft.VSCode public.xml all
+com.microsoft.VSCode public.plain-text all
+com.microsoft.VSCode public.script all
+com.microsoft.VSCode public.shell-script all
+com.microsoft.VSCode public.zsh-script all
+com.microsoft.VSCode public.php-script all
+com.microsoft.VSCode public.ruby-script all
+com.microsoft.VSCode public.python-script all
+com.microsoft.VSCode public.xhtml all
+com.microsoft.VSCode public.json all
+com.microsoft.VSCode net.daringfireball.markdown all
+com.microsoft.VSCode public.comma-separated-values-text all
+com.microsoft.VSCode public.swift-source all
+com.microsoft.VSCode public.data all

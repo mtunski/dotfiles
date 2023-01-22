@@ -46,11 +46,8 @@ setopt rcs
 
 # Custom
 
-if [[ -n "${HOMEBREW_PREFIX}" && ! -n "${DEVBOX}" ]]; then
-  z4h source -- ${HOMEBREW_PREFIX:+$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh}
-fi
-
 if [[ -e ~/.asdf/asdf.sh && ! -n "${DEVBOX}" ]]; then
+  # PATH="$PATH:~/.asdf/bin"
   z4h source -- ~/.asdf/asdf.sh
 fi
 
