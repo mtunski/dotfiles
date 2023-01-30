@@ -1,3 +1,6 @@
+- clone dotfiles in user folder
+- `sudo New-Item -ItemType SymbolicLink -Path "./.hyper.js" -Target "C:\Users\mtunski\dotfiles\.config\hyper\.hyper.js"`
+
 PS C:\Users\mtunski> winget list
 Name Id Version Available Source
 

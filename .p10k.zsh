@@ -30,7 +30,7 @@
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    devbox
+    nixdev
     context                 # user@hostname
     dir                     # current directory
     vcs                     # git status
@@ -86,7 +86,7 @@
     xplr                    # xplr shell (https://github.com/sayanarijit/xplr)
     vim_shell               # vim shell indicator (:sh)
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
-    nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
+    # nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
     # disk_usage            # disk usage
@@ -1572,13 +1572,13 @@
     prompt_example
   }
 
-   function prompt_devbox() {
-    if [[ -n "${DEVBOX}" ]]; then
-      p10k segment -f 3 -t '[devbox]'
+   function prompt_nixdev() {
+    if [[ -n "${NIXDEV}" ]]; then
+      p10k segment -f 3 -t '[nix]'
     fi
   }
-  function instant_prompt_devbox() {
-    prompt_devbox
+  function instant_prompt_nixdev() {
+    prompt_nixdev
   }
 
   # User-defined prompt segments can be customized the same way as built-in segments.

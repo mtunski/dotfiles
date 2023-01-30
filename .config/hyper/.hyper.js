@@ -38,34 +38,34 @@ module.exports = {
     // border color (window, tabs)
     borderColor: "#333",
     // custom CSS to embed in the main window
-    css: `
-      .header_header {
-        top: calc(var(--border-width) - 4px) !important;
-        left: calc(var(--border-width) - 4px) !important;
-        right: calc(var(--border-width) - 4px) !important;
-      }
+    // css: `
+    //   .header_header {
+    //     top: calc(var(--border-width) - 4px) !important;
+    //     left: calc(var(--border-width) - 4px) !important;
+    //     right: calc(var(--border-width) - 4px) !important;
+    //   }
 
-      .tab_tab {
-        border: none !important;
-        padding: 0 !important;
-      }
+    //   .tab_tab {
+    //     border: none !important;
+    //     padding: 0 !important;
+    //   }
 
-      [draggable=true] {
-        background: transparent;
+    //   [draggable=true] {
+    //     background: transparent;
 
-        &:first-of-type{
-          border-radius: 4px 0 0 0;
-        }
-        
-        &:last-of-type{
-          border-radius: 0 4px 0 0;
-        }
+    //     &:first-of-type{
+    //       border-radius: 4px 0 0 0;
+    //     }
 
-        border-style: solid;
-        border-color: rgb(68, 71, 90);
-        border-right-width: 0;
-      }
-    `,
+    //     &:last-of-type{
+    //       border-radius: 0 4px 0 0;
+    //     }
+
+    //     border-style: solid;
+    //     border-color: rgb(68, 71, 90);
+    //     border-right-width: 0;
+    //   }
+    // `,
     // custom CSS to embed in the terminal window
     termCSS: "",
     // set custom startup directory (must be an absolute path)
@@ -188,6 +188,7 @@ module.exports = {
     // hyperline: {
     //   plugins: ["ip", "cpu", "spotify"],
     // },
+    useConpty: false,
   },
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
@@ -196,14 +197,14 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    // "hyper-dracula",
+    "hyper-dracula",
     "hyper-pane",
-    "hyperfullscreen",
+    // "hyperfullscreen",
     "hyperminimal",
     "hyper-single-instance",
     "hyper-quit",
     "hyperborder",
-    "hyper-statusline",
+    // "hyper-statusline",
     "hyper-dnd-tabs",
     // "hyperterm-tabs",
     // "hyperline", // dead
