@@ -1,3 +1,4 @@
+- git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 - clone dotfiles in user folder
 - `sudo New-Item -ItemType SymbolicLink -Path "./.hyper.js" -Target "C:\Users\mtunski\dotfiles\.config\hyper\.hyper.js"`
 
