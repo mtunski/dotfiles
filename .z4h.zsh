@@ -68,6 +68,7 @@ alias glg="git log"
 alias gm="git merge"
 alias gl="git pull"
 alias gp="git push"
+alias ga="git add"
 
 if (($+commands[pgcli])); then
   alias psql=pgcli

@@ -30,3 +30,5 @@ yarn-error.log
 .elixir_ls/
 docker-compose.dev.yml
 .nova/
+.ssh/s
+.ssh/known_hosts*
