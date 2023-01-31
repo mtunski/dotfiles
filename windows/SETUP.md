@@ -1,6 +1,7 @@
 - git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 - clone dotfiles in user folder
-- `sudo New-Item -ItemType SymbolicLink -Path "./.hyper.js" -Target "C:\Users\mtunski\dotfiles\.config\hyper\.hyper.js"`
+- `sudo New-Item -ItemType SymbolicLink -Path "C:\Users\mtunski\AppData\Roaming\Hyper\.hyper.js" -Target "C:\Users\mtunski\dotfiles\windows\.hyper.js"`
+- `sudo New-Item -ItemType SymbolicLink -Path "C:\Users\mtunski\AppData\Roaming\Microsoft\Windows\'Start Menu'\Programs\Startup\.bindings.ahk" -Target "C:\Users\mtunski\dotfiles\.config\windows\bindings.ahk"`
 
 PS C:\Users\mtunski> winget list
 Name Id Version Available Source

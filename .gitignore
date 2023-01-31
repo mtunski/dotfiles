@@ -32,3 +32,5 @@ docker-compose.dev.yml
 .nova/
 .ssh/s
 .ssh/known_hosts*
+devenv*
+.devenv*

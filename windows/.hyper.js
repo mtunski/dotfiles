@@ -102,28 +102,11 @@ module.exports = {
     //   limeGreen: "#32CD32",
     //   lightCoral: "#F08080",
     // },
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-    // if left empty, your system's login shell will be used by default
-    //
-    // Windows
-    // - Make sure to use a full path if the binary name doesn't work
-    // - Remove `--login` in shellArgs
-    //
-    // Windows Subsystem for Linux (WSL) - previously Bash on Windows
-    // - Example: `C:\\Windows\\System32\\wsl.exe`
-    //
-    // Git-bash on Windows
-    // - Example: `C:\\Program Files\\Git\\bin\\bash.exe`
-    //
-    // PowerShell on Windows
-    // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    //
-    // Cygwin
-    // - Example: `C:\\cygwin64\\bin\\bash.exe`
-    shell: "",
+    shell: "C:\\Windows\\System32\\wsl.exe",
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
-    shellArgs: ["--login"],
+    // shellArgs: ["--login"],
+    shellArgs: ["~"],
     // for environment variables
     env: {},
     // Supported Options:
@@ -155,10 +138,8 @@ module.exports = {
     disableAutoUpdates: false,
     // set to true to enable screen reading apps (like NVDA) to read the contents of the terminal
     screenReaderMode: false,
-    // set to true to preserve working directory when creating splits or tabs
     preserveCWD: true,
-    // for advanced config flags please refer to https://hyper.is/#cfg
-    //
+
     // hyper-pane
     paneNavigation: {
       // debug: false,
@@ -183,22 +164,27 @@ module.exports = {
       //   fontSize: "10px",
       // },
       // focusOnMouseHover: true,
-      inactivePaneOpacity: 0.6, // Set to 1 to disable inactive panes dimming
+      inactivePaneOpacity: 0.4, // Set to 1 to disable inactive panes dimming
+
+      hyperCwdWsl: {
+        // defaultDirectory: "~",
+        titleRegExp: "^user@hostname: (.*)$",
+        // replaceRegExp: "^user@hostname: (/)$|^user@hostname: /?(.+/)*([^/]+)$",
+        // replaceWith: "$1$3",
+        clearAfter: true,
+        // titleRegExp: "^(?:ZSH:)?mtunski@overmind: (.*)$",
+        // replaceRegExp: "^ZSH:mtunski@overmind: ",
+        // replaceWith: "",
+        // debugMode: true,
+      },
     },
-    // hyperline: {
-    //   plugins: ["ip", "cpu", "spotify"],
-    // },
+
     useConpty: false,
   },
-  // a list of plugins to fetch and install from npm
-  // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
+
   plugins: [
-    "hyper-dracula",
     "hyper-pane",
+    "hyper-cwd-wsl",
     // "hyperfullscreen",
     "hyperminimal",
     "hyper-single-instance",
@@ -206,14 +192,7 @@ module.exports = {
     "hyperborder",
     // "hyper-statusline",
     "hyper-dnd-tabs",
-    // "hyperterm-tabs",
-    // "hyperline", // dead
-    // "hyper-dark-scrollbar", // not doing anything
-    // "hyper-active-tab",
   ],
-  // in development, you can create a directory under
-  // `~/.hyper_plugins/local/` and include it here
-  // to load it and avoid it being `npm install`ed
   localPlugins: ["dracula-pro"],
   keymaps: {
     // Example

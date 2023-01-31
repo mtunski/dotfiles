@@ -109,10 +109,17 @@ if (($+commands[explorer.exe])); then
     (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
   fi
 
-  keep_current_path() {
-    printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
-  }
-  precmd_functions+=(keep_current_path)
+  # keep_current_path() {
+  #   printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+  # }
+  # precmd_functions+=(keep_current_path)
+
+  # precmd () {printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"}
+  # precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+  # precmd () {print -Pn "\e]0;ZSH:%n@%m: %~\a"}
+
+  zstyle ':z4h:term-title:local' preexec ''
+  zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
 fi
 
 if (($+commands[autossh])); then
