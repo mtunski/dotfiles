@@ -1,5 +1,5 @@
 ﻿; Send tilde with 1 keystroke
-+`:: 
++`::
   Send {U+007E}
 Return
 
@@ -27,8 +27,14 @@ Return
   WinActivate, %Title%
 Return
 
+; Remap CapsLock to Escape
+Capslock::Esc
+
+; Remap Ctrl + Shift + w to Alt + F4
+^+w:: Send !{f4}
+
 ; Disable ctrl + esc
-;^escape:: 
+;^escape::
 ;Return
 
 ;~!Tab::

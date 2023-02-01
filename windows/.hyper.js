@@ -194,9 +194,6 @@ module.exports = {
     "hyper-dnd-tabs",
   ],
   localPlugins: ["dracula-pro"],
-  keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
-  },
+  keymaps: {},
 };
 //# sourceMappingURL=config-default.js.map

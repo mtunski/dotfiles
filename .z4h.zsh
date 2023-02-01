@@ -71,6 +71,9 @@ alias gp="git push"
 alias ga="git add"
 alias gs="git status"
 alias gst="git stash"
+alias gsh="git show"
+alias gr="git reset"
+alias grb="git rebase"
 
 if (($+commands[pgcli])); then
   alias psql=pgcli
