@@ -50,3 +50,8 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
+  
+[blame]
+	markIgnoredLines = true
+	markUnblamableLines = true
+	ignoreRevsFile = .git-blame-ignore-revs

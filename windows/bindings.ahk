@@ -31,7 +31,7 @@ Return
 Capslock::Esc
 
 ; Remap Ctrl + Shift + w to Alt + F4
-^+w:: Send !{f4}
+;^+w:: Send !{f4}
 
 ; Disable ctrl + esc
 ;^escape::

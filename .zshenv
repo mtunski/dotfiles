@@ -46,12 +46,5 @@ setopt rcs
 
 # Custom
 
-if [[ -e ~/.asdf/asdf.sh && ! -n "${DEVBOX}" ]]; then
-  # PATH="$PATH:~/.asdf/bin"
-  z4h source -- ~/.asdf/asdf.sh
-fi
-
-export DIRENV_LOG_FORMAT=
-
 if [ -e /home/mtunski/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mtunski/.nix-profile/etc/profile.d/nix.sh; fi                     # added by Nix installer
 if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; fi # added by Nix installer
