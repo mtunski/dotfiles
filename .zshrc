@@ -108,11 +108,7 @@ setopt no_auto_menu # require an extra TAB press to open the completion menu
 
 # Custom
 
-export DIRENV_LOG_FORMAT=
-export PGHOST=localhost
-export AUTOSSH_FIRST_POLL=30
-export AUTOSSH_GATETIME=60
-export ERL_AFLAGS="-kernel shell_history enabled"
+
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
 unsetopt extendedglob
@@ -131,10 +127,7 @@ alias gst="git stash"
 alias gsh="git show"
 alias gr="git reset"
 alias grb="git rebase"
-
-if (($+commands[pgcli])); then
-  alias psql=pgcli
-fi
+alias gd="git diff"
 
 if (($+commands[exa])); then
   alias ls=exa
@@ -180,16 +173,6 @@ if (($+commands[explorer.exe])); then
 
   zstyle ':z4h:term-title:local' preexec ''
   zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
-fi
-
-if (($+commands[autossh])); then
-  alias surfer.docker="cd ~/Code/Surfer/surfer-core && docker compose -f docker-compose.dev.yml up -d"
-  alias surfer.tunnels.start="autossh -M 0 -f -T -N surfer.tunnels"
-  alias surfer.tunnels.stop="killall autossh"
-  alias surfer.backend="surfer.docker && iex -S mix phx.server"
-  alias surfer.frontend="cd ~/Code/Surfer/surfer-core && yarn && yarn start:ssl"
-  alias surfer.crawler="cd ~/Code/Surfer/surfer-crawler && yarn start:dev"
-  alias surfer.clusterer="cd ~/Code/Surfer/surfer-clusterer && make docker-start"
 fi
 
 # load surfer helpers in remote environment
