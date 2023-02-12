@@ -130,9 +130,8 @@ alias grb="git rebase"
 alias gd="git diff"
 
 if (($+commands[exa])); then
-  alias ls=exa
-  # alias ls='exa -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
-  # alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
+  alias ls='exa -a --group-directories-first --color=auto --git'
+  alias ll='exa -lahF --group-directories-first --color=auto --git'
 fi
 
 if (($+commands[bat])); then
@@ -143,6 +142,8 @@ if (($+commands[batcat])); then
 fi
 
 if (($+commands[explorer.exe])); then
+  alias win="pwsh.exe -nol -wd C:/Users/mtunski"
+  
   alias open="explorer.exe $1"
 
   # Configure ssh forwarding
@@ -162,10 +163,10 @@ if (($+commands[explorer.exe])); then
     (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
   fi
 
-  # keep_current_path() {
-  #   printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
-  # }
-  # precmd_functions+=(keep_current_path)
+  keep_current_path() {
+    printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+  }
+  precmd_functions+=(keep_current_path)
 
   # precmd () {printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"}
   # precmd () {print -Pn "\e]0;%n@%m: %~\a"}
