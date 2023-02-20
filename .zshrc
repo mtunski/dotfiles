@@ -108,9 +108,6 @@ setopt no_auto_menu # require an extra TAB press to open the completion menu
 
 # Custom
 
-
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-
 unsetopt extendedglob
 
 alias gb="git branch"
@@ -174,6 +171,8 @@ if (($+commands[explorer.exe])); then
 
   zstyle ':z4h:term-title:local' preexec ''
   zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
+else 
+  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
 
 # load surfer helpers in remote environment
