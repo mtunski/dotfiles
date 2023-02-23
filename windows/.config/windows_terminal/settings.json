@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -13,16 +17,19 @@
             "keys": "ctrl+shift+e"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": "duplicateTab",
+            "keys": "ctrl+shift+t"
         },
         {
             "command": "paste",
             "keys": "ctrl+v"
         },
         {
-            "command": "duplicateTab",
-            "keys": "ctrl+shift+t"
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            }
         },
         {
             "command": 
@@ -31,13 +38,6 @@
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "right"
-            }
         },
         {
             "command": 
@@ -73,6 +73,9 @@
                 "face": "LigaOperatorMono NF",
                 "weight": "thin"
             },
+            "historySize": 999999999,
+            "opacity": 90,
+            "useAcrylic": true,
             "useAtlasEngine": true
         },
         "list": 
@@ -100,6 +103,12 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": true,
                 "name": "Command Prompt"
+            },
+            {
+                "guid": "{2b24d503-9f19-5394-8cd7-6d74d2614ea4}",
+                "hidden": false,
+                "name": "Ubuntu2",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -360,5 +369,6 @@
         }
     ],
     "themes": [],
+    "useAcrylicInTabRow": true,
     "windowingBehavior": "useAnyExisting"
 }
