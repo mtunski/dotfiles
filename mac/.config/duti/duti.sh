@@ -9,7 +9,6 @@ com.microsoft.VSCode public.ruby-script all
 com.microsoft.VSCode public.python-script all
 com.microsoft.VSCode public.xhtml all
 com.microsoft.VSCode public.json all
-com.microsoft.VSCode net.daringfireball.markdown all
 com.microsoft.VSCode public.comma-separated-values-text all
 com.microsoft.VSCode public.swift-source all
 com.microsoft.VSCode public.data all

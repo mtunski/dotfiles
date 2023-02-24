@@ -96,6 +96,8 @@ return {
     --     bottom = 0
     -- }
 
+    pane_focus_follows_mouse = true,
+
     keys = { -- Turn off the default CMD-m Hide action, allowing CMD-m to
     -- be potentially recognized and handled by the tab
     {
