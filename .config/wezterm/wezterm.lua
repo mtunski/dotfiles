@@ -8,6 +8,15 @@ wezterm.on("gui-startup", function()
 end)
 
 return {
+    wsl_domains = {{
+        name = 'WSL:Ubuntu',
+        distribution = 'Ubuntu',
+        default_cwd = "~"
+        -- default_prog = {"fish"}
+    }},
+
+    default_domain = "WSL:Ubuntu",
+
     font = wezterm.font({
         family = 'LigaOperatorMono NF',
         weight = 'ExtraLight',

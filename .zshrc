@@ -139,8 +139,9 @@ if (($+commands[batcat])); then
 fi
 
 if (($+commands[explorer.exe])); then
+  export SSH_AUTH_SOCK=~/.ssh/agent.sock
+
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
-  
   alias open="explorer.exe $1"
 
   # Configure ssh forwarding
