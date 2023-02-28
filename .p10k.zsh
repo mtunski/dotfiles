@@ -1574,7 +1574,7 @@
 
    function prompt_nixdev() {
     if [[ -n "${NIXDEV}" ]]; then
-      p10k segment -f 3 -t '[nix]'
+      p10k segment -f 6 -t '[nix]'
     fi
   }
   function instant_prompt_nixdev() {

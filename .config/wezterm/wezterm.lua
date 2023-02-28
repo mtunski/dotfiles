@@ -7,15 +7,16 @@ wezterm.on("gui-startup", function()
     window:gui_window():toggle_fullscreen()
 end)
 
+local in_wsl = wezterm.running_under_wsl()
+
 return {
     wsl_domains = {{
         name = 'WSL:Ubuntu',
         distribution = 'Ubuntu',
         default_cwd = "~"
-        -- default_prog = {"fish"}
     }},
 
-    default_domain = "WSL:Ubuntu",
+    default_domain = in_wsl and "WSL:Ubuntu" or nil,
 
     font = wezterm.font({
         family = 'LigaOperatorMono NF',
@@ -70,6 +71,8 @@ return {
         }
     }},
 
+    scrollback_lines = 99999,
+
     exit_behavior = "Hold",
     window_close_confirmation = 'NeverPrompt',
 
@@ -79,16 +82,13 @@ return {
     use_fancy_tab_bar = false,
     window_decorations = "RESIZE",
 
-    -- cursor_blink_ease_in = 'Constant',
-    -- cursor_blink_ease_out = 'Constant',
-    -- cursor_blink_rate = 500,
     default_cursor_style = 'BlinkingBar',
     cursor_blink_ease_in = "EaseIn",
     cursor_blink_ease_out = "EaseOut",
+    -- cursor_blink_rate = 500,
 
     adjust_window_size_when_changing_font_size = false,
 
-    -- disable_default_key_bindings = true
     animation_fps = 1,
 
     front_end = "WebGpu",
@@ -107,31 +107,21 @@ return {
 
     pane_focus_follows_mouse = true,
 
-    keys = { -- Turn off the default CMD-m Hide action, allowing CMD-m to
-    -- be potentially recognized and handled by the tab
-    {
+    keys = {{
+        key = 'k',
+        mods = 'CMD',
+        action = wezterm.action.ClearScrollback 'ScrollbackAndViewport'
+    }, {
         key = 'd',
         mods = 'CMD',
         action = wezterm.action.SplitPane {
             direction = 'Right'
-            -- command = {
-            --     -- args = {'top'}
-            -- },
-            -- size = {
-            --     Percent = 50
-            -- }
         }
     }, {
         key = 'd',
         mods = 'CMD|SHIFT',
         action = wezterm.action.SplitPane {
             direction = 'Down'
-            -- command = {
-            --     -- args = {'top'}
-            -- },
-            -- size = {
-            --     Percent = 50
-            -- }
         }
     }, {
         key = 'w',
@@ -139,6 +129,5 @@ return {
         action = wezterm.action.CloseCurrentPane {
             confirm = false
         }
-
     }}
 }
