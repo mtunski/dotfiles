@@ -190,4 +190,4 @@ fi
 # zstyle ':z4h:fzf-complete' recurse-dirs yes
 # zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
 
-zstyle ':completion:*:ssh:*' ignored-patterns surfer-bastion surfer.tunnels
+zstyle ':completion:*:ssh:*' ignored-patterns surfer-bastion surfer-tunnels
