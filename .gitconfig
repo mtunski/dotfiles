@@ -16,6 +16,9 @@
 [pull]
   rebase = true
 
+[rebase]
+  autosquash = true
+
 [pager]
     diff = delta
     log = delta
