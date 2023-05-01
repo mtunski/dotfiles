@@ -1,25 +1,18 @@
 local wezterm = require "wezterm"
-
--- local in_wsl = wezterm.running_under_wsl()
-local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
-local is_macos = wezterm.target_triple == "x86_64-apple-darwin"
-
 local mux = wezterm.mux
 
-if is_macos then
-    wezterm.on("gui-startup", function()
-        local tab, pane, window = mux.spawn_window {}
-        window:gui_window():maximize()
-    end)
+local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
+local is_macos = wezterm.target_triple == "aarch64-apple-darwin"
 
-end
+wezterm.on("gui-startup", function()
+    local _, _, window = mux.spawn_window {}
 
-if is_windows then
-    wezterm.on("gui-startup", function()
-        local tab, pane, window = mux.spawn_window {}
+    if is_macos then
         window:gui_window():toggle_fullscreen()
-    end)
-end
+    elseif is_windows then
+        window:gui_window():maximize()
+    end
+end)
 
 return {
     wsl_domains = {{
@@ -43,8 +36,7 @@ return {
         italic = false,
         font = wezterm.font {
             family = "LigaOperatorMono NF",
-            weight = "Light",
-            foreground = "tomato"
+            weight = "Light"
         }
     }, -- Bold-and-italic
     {
