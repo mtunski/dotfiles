@@ -138,12 +138,23 @@ if (($+commands[batcat])); then
   alias cat=batcat
 fi
 
-if (($+commands[explorer.exe])); then
+if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
   export SSH_AUTH_SOCK=~/.ssh/agent.sock
+
+  path+=(
+    "/mnt/c/Users/mtunski/AppData/Local/Microsoft/WindowsApps"
+    "/mnt/c/Users/mtunski/AppData/Local/Programs/Microsoft VS Code/bin"
+    "/mnt/c/windows"
+    "/mnt/c/Users/mtunski/scoop/shims"
+    "/mnt/c/Program Files/PowerShell/7"
+    "/mnt/c/Users/mtunski/AppData/Local/Microsoft/WinGet/Packages/AgileBits.1Password.CLI_Microsoft.Winget.Source_8wekyb3d8bbwe"
+  )
 
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
   alias open="explorer.exe $1"
-
+  alias op="op.exe"
+  eval "$(op completion zsh)"; compdef _op op.exe
+  
   # Configure ssh forwarding
   # need `ps -ww` to get non-truncated command for matching
   # use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
