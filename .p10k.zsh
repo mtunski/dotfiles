@@ -1573,7 +1573,7 @@
   }
 
    function prompt_nixdev() {
-    if [[ -n "${NIXDEV}" ]]; then
+    if [[ -n "${IN_NIX_SHELL}" ]]; then
       p10k segment -f 6 -t '[nix]'
     fi
   }

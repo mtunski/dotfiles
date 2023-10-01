@@ -75,8 +75,10 @@ path=(~/bin $path)
 # z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 
 # Define key bindings.
-z4h bindkey z4h-backward-kill-word Ctrl+Backspace Ctrl+H
-z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
+# z4h bindkey z4h-backward-kill-word Ctrl+Backspace
+# z4h bindkey z4h-backward-kill-zword Alt+Backspace
+# z4h bindkey z4h-backward-kill-word Ctrl+Backspace Ctrl+H
+# z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 
 # z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
 # z4h bindkey redo Alt+/             # redo the last undone command line change
@@ -202,3 +204,7 @@ fi
 # zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
 
 zstyle ':completion:*:ssh:*' ignored-patterns surfer-bastion surfer-tunnels
+
+if (($+commands[atuin])); then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi
