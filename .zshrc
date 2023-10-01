@@ -208,3 +208,7 @@ zstyle ':completion:*:ssh:*' ignored-patterns surfer-bastion surfer-tunnels
 if (($+commands[atuin])); then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
+
+if (($+commands[devbox])); then
+  eval "$(devbox global shellenv --init-hook)"
+fi
