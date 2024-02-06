@@ -110,6 +110,10 @@ setopt no_auto_menu # require an extra TAB press to open the completion menu
 
 # Custom
 
+if (($+commands[devbox])); then
+  eval "$(devbox global shellenv --init-hook)"
+fi
+
 unsetopt extendedglob
 
 alias gb="git branch"
@@ -142,15 +146,6 @@ fi
 
 if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
   export SSH_AUTH_SOCK=~/.ssh/agent.sock
-
-  path+=(
-    "/mnt/c/Users/mtunski/AppData/Local/Microsoft/WindowsApps"
-    "/mnt/c/Users/mtunski/AppData/Local/Programs/Microsoft VS Code/bin"
-    "/mnt/c/windows"
-    "/mnt/c/Users/mtunski/scoop/shims"
-    "/mnt/c/Program Files/PowerShell/7"
-    "/mnt/c/Users/mtunski/AppData/Local/Microsoft/WinGet/Packages/AgileBits.1Password.CLI_Microsoft.Winget.Source_8wekyb3d8bbwe"
-  )
 
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
   alias open="explorer.exe $1"
@@ -189,11 +184,6 @@ else
   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
 
-# load surfer helpers in remote environment
-if [[ -f /etc/profile.d/surfer-umbrella.sh ]]; then
-  source /etc/profile.d/surfer-umbrella.sh
-fi
-
 # zstyle ':z4h:fzf-dir-history' fzf-bindings tab:repeat
 # zstyle ':z4h:cd-down'         fzf-bindings tab:repeat
 
@@ -203,12 +193,7 @@ fi
 # zstyle ':z4h:fzf-complete' recurse-dirs yes
 # zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
 
-zstyle ':completion:*:ssh:*' ignored-patterns surfer-bastion surfer-tunnels
-
 if (($+commands[atuin])); then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-if (($+commands[devbox])); then
-  eval "$(devbox global shellenv --init-hook)"
-fi
