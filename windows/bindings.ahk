@@ -3,6 +3,13 @@
   Send {U+007E}
 Return
 
+; Fix ctrl+shift+0
+^+0::
+  ; set in vscode
+  Send ^+9
+  Send ^+0
+Return
+
 ; Send space on altgr+space (fix typing space after a word ending with Polish diactric sign)
 ;<^>!Space::
 ;  Send {Space}
