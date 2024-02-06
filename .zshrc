@@ -132,9 +132,9 @@ alias gr="git reset"
 alias grb="git rebase"
 alias gd="git diff"
 
-if (($+commands[exa])); then
-  alias ls='exa -a --group-directories-first --color=auto --git'
-  alias ll='exa -lahF --group-directories-first --color=auto --git'
+if (($+commands[eza])); then
+  alias ls='eza -a --group-directories-first --color=auto --git'
+  alias ll='eza -lahF --group-directories-first --color=auto --git'
 fi
 
 if (($+commands[bat])); then
