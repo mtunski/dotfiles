@@ -43,8 +43,3 @@ fi
 . "$Z4H"/z4h.zsh || return
 
 setopt rcs
-
-# Custom
-
-if [ -e /home/mtunski/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mtunski/.nix-profile/etc/profile.d/nix.sh; fi                     # added by Nix installer
-if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; fi # added by Nix installer
