@@ -40,6 +40,12 @@ if [ ! -e "$Z4H"/z4h.zsh ]; then
   mv -- "$Z4H"/z4h.zsh.$$ "$Z4H"/z4h.zsh || return
 fi
 
+if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
+  unset -m 'LC_*|LANG'
+  export LANG=C.UTF-8
+  export LC_ALL=C.UTF-8
+fi
+
 . "$Z4H"/z4h.zsh || return
 
 setopt rcs

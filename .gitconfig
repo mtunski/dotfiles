@@ -39,12 +39,16 @@
 
 [diff]
     colorMoved = default
+    
+[diff "sopsdiffer"]
+	textconv = sops -d --config /dev/null
 
 # [color]
 #   ui = true
 #   diff = true
 #   status = true
 #   branch = true
+
 [init]
 	defaultBranch = main
 

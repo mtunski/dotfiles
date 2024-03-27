@@ -110,9 +110,7 @@ setopt no_auto_menu # require an extra TAB press to open the completion menu
 
 # Custom
 
-if (($+commands[devbox])); then
-  eval "$(devbox global shellenv --init-hook)"
-fi
+export EDITOR=code
 
 unsetopt extendedglob
 
@@ -132,24 +130,13 @@ alias gr="git reset"
 alias grb="git rebase"
 alias gd="git diff"
 
-if (($+commands[eza])); then
-  alias ls='eza -a --group-directories-first --color=auto --git'
-  alias ll='eza -lahF --group-directories-first --color=auto --git'
-fi
-
-if (($+commands[bat])); then
-  alias cat=bat
-fi
-if (($+commands[batcat])); then
-  alias cat=batcat
-fi
-
 if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
   export SSH_AUTH_SOCK=~/.ssh/agent.sock
 
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
   alias open="explorer.exe $1"
   alias op="op.exe"
+  alias wsl="wsl.exe"
   eval "$(op completion zsh)"; compdef _op op.exe
   
   # Configure ssh forwarding
@@ -180,6 +167,8 @@ if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
 
   zstyle ':z4h:term-title:local' preexec ''
   zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
+
+  # export LIBGL_ALWAYS_INDIRECT=1
 else 
   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
@@ -197,3 +186,27 @@ if (($+commands[atuin])); then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
+if (($+commands[eza])); then
+  alias ls='eza -a --group-directories-first --color=auto --git'
+  alias ll='eza -lahF --group-directories-first --color=auto --git'
+fi
+
+if (($+commands[bat])); then
+  alias cat=bat
+fi
+
+if (($+commands[batcat])); then
+  alias cat=batcat
+fi
+
+if (($+commands[pgcli])); then
+  alias psql="clear && pgcli"
+fi
+
+if (($+commands[btop])); then
+  alias top=btop
+fi
+
+if (($+commands[fastfetch])); then
+  alias neofetch=fastfetch
+fi
