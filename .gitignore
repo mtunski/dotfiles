@@ -33,3 +33,4 @@ docker-compose.dev.yml
 .ssh/s
 .ssh/known_hosts*
 bin/op
+.claude/settings.local.json

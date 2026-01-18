@@ -36,7 +36,7 @@ zstyle ':z4h:direnv:success' notify 'no'
 # zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
 # zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
 # The default value if none of the overrides above match the hostname.
-zstyle ':z4h:ssh:*' enable 'yes'
+zstyle ':z4h:ssh:*' enable 'no'
 
 # Send these files over to the remote host when connecting over SSH to the
 # enabled hosts.
@@ -115,8 +115,10 @@ export EDITOR=code
 unsetopt extendedglob
 
 alias gb="git branch"
+alias gbd="git branch -D"
 alias gco="git checkout"
 alias gc="git commit"
+alias gca="git commit --amend"
 alias glg="git log"
 alias gm="git merge"
 alias gl="git pull"
@@ -129,8 +131,11 @@ alias gsh="git show"
 alias gr="git reset"
 alias grb="git rebase"
 alias gd="git diff"
+alias gcp="git cherry-pick"
 
 if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
+  ulimit -n $(ulimit -n -H)
+  
   export SSH_AUTH_SOCK=~/.ssh/agent.sock
 
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
@@ -209,4 +214,8 @@ fi
 
 if (($+commands[fastfetch])); then
   alias neofetch=fastfetch
+fi
+
+if (($+commands[cursor])); then
+  alias code=cursor
 fi

@@ -62,3 +62,9 @@
 	markIgnoredLines = true
 	markUnblamableLines = true
 	ignoreRevsFile = .git-blame-ignore-revs
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/mtunski/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/mtunski/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
