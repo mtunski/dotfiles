@@ -135,43 +135,26 @@ alias gcp="git cherry-pick"
 
 if [[ -n "$WSL_DISTRO_NAME" || -n "$WSL_INTEROP" || -n "$WSLENV" ]]; then
   ulimit -n $(ulimit -n -H)
-  
-  export SSH_AUTH_SOCK=~/.ssh/agent.sock
+
+  alias ssh='ssh.exe'
+  alias ssh-add='ssh-add.exe'
+  export GIT_SSH_COMMAND="ssh.exe"
 
   alias win="pwsh.exe -nol -wd C:/Users/mtunski"
-  alias open="explorer.exe $1"
-  alias op="op.exe"
   alias wsl="wsl.exe"
+
+  alias open="explorer.exe $1"
+  
+  alias op="op.exe"
   eval "$(op completion zsh)"; compdef _op op.exe
   
-  # Configure ssh forwarding
-  # need `ps -ww` to get non-truncated command for matching
-  # use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
-  ALREADY_RUNNING=$(
-    ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"
-    echo $?
-  )
-  if [[ $ALREADY_RUNNING != "0" ]]; then
-    if [[ -S $SSH_AUTH_SOCK ]]; then
-      # not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
-      rm $SSH_AUTH_SOCK
-    fi
-    # setsid to force new session to keep running
-    # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
-  fi
 
-  keep_current_path() {
-    printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
-  }
+  keep_current_path() { printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")" }
   precmd_functions+=(keep_current_path)
 
-  # precmd () {printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"}
-  # precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-  # precmd () {print -Pn "\e]0;ZSH:%n@%m: %~\a"}
-
   zstyle ':z4h:term-title:local' preexec ''
-  zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
+  zstyle ':z4h:term-title:local' precmd "%~"
+  # zstyle ':z4h:term-title:local' precmd "%n@%m: %~"
 
   # export LIBGL_ALWAYS_INDIRECT=1
 else 
